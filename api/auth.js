@@ -30,7 +30,8 @@ router.use(async (req, res, next) => {
   }
 });
 
-// Register Route
+// POST Register Route
+// creates a new User with the provided credentials and sends a token
 router.post("/register", async (req, res, next) => {
   const { username, password } = req.body;
   try {
@@ -42,7 +43,8 @@ router.post("/register", async (req, res, next) => {
   }
 });
 
-// Login Route
+// POST Login Route
+// sends a token if the provided credentials are valid
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
   try {
@@ -65,5 +67,5 @@ function authenticate(req, res, next) {
 
 module.exports = {
   router,
-  authenticate,
+  authenticate, // we want to export authenticate function to use
 };
