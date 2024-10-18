@@ -8,9 +8,10 @@ const PORT = 3000;
 
 // Logging Middleware
 app.use(require("morgan")("dev"));
-// Javascript Object Notation Middleware
+// Javascript Object Notation Parsing
 app.use(express.json());
 
+// Import API Router and routes
 app.use(require("./api/auth").router);
 app.use("/playlists", require("./api/playlists"));
 app.use("/tracks", require("./api/tracks"));
